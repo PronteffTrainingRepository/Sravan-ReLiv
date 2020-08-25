@@ -25,7 +25,10 @@ function BodyParameters ()  {
 let [time, setTime] = useState('')  ;
 let [date,setDate] = useState('') ;
 let [values, setvalues] = useState(initialValues)
-console.log(values);
+
+// console.log(values);
+
+
 
     useEffect(() => {
         StatusBar.setBarStyle( 'light-content',true)
@@ -74,13 +77,37 @@ console.log(values);
         
     }, [])
  
- const handleChange=(e,name)=>{
-console.log(e);
+//  const handleChange=(e,name)=>{
+//         setvalues({
+//             ...values,
+//             [name]:e
+//         })
+//     }
+
+const handleChange=(e,name)=>{
+    const input = e
+    if (/^[0-9.]+$/.test(input)|| input === "" ) {
         setvalues({
             ...values,
             [name]:e
         })
-    }
+  }    
+}   
+
+
+// restrict = (event) => {
+   
+//     const regex = new RegExp("/^[^!-\\/:-@\\[-`{-~]+$/,;");
+//     const keycode = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+//     if (!regex.test(keycode)){
+      
+//             event.preventDefault();
+//             return false;
+//     }
+//     else {
+//         return true;
+//     }  
+// }
 
 function setWhr(){
     
@@ -168,11 +195,11 @@ function BMIText(){
     }
 }
 
-console.log('mass',setFat().lbmass);
-console.log('whrtext',WhrText());
-console.log('BMI',BMI());
-console.log('whr',setWhr())
-console.log('fat',setFat())
+// console.log('mass',setFat().lbmass);
+// console.log('whrtext',WhrText());
+// console.log('BMI',BMI());
+// console.log('whr',setWhr())
+// console.log('fat',setFat())
 
     return (
         <SafeAreaView style={styles.container}>
@@ -182,7 +209,7 @@ console.log('fat',setFat())
                     <View style={{justifyContent:'center'}}>
                     <Image
                             style={styles.logo}
-                            source={require('../../assets/logo.png')}
+                            source={require('../../assets/reliv.png')}
                             resizeMode='cover'
                         />
                     </View>
@@ -203,15 +230,15 @@ console.log('fat',setFat())
             <View >
                 <View style={styles.proview}>
                     <View >
-                    <MaterialIcons name="notifications-active" style={{backgroundColor:'rgb(31, 224, 242)',borderRadius:ht*0.06,marginRight:wd*0.069,alignSelf:'flex-end',marginBottom:ht*-0.0523,marginTop:ht*0.023 }} size={24} color="white" />
-                    <Image style={styles.progress} source={require('../../assets/progress.png')} resizeMode='cover' />
+                    <MaterialIcons name="notifications-active" style={{backgroundColor:'rgb(31, 224, 242)',borderRadius:ht*0.06,marginRight:wd*0.069,alignSelf:'flex-end',marginBottom:ht*-0.059,marginTop:ht*0.023 }} size={24} color="white" />
+                    <Image style={styles.progress} source={require('../../assets/bmi.png')} resizeMode='cover' />
                     
                     </View>
                     <View>
-                        <View style={{width:wd*0.2,height:ht*0.1,backgroundColor:'white',marginTop:-ht*0.16,marginLeft:wd*0.408,alignItems:'center'}}>
+                        <View style={{width:ht*0.09,height:ht*0.09,backgroundColor:'white',marginTop:-ht*0.14,marginLeft:wd*0.405,alignItems:'center',}}>
                             <Text style={{fontSize:ht*0.02,fontWeight:'bold'}} >BMI</Text>
                             <Text style={{fontSize:ht*0.04,fontWeight:'bold'}}>{BMI()== 0? null: BMI().toFixed(1) }</Text>
-                            <Text style={{fontSize:ht*0.018,fontWeight:'bold'}}>{BMIText()}</Text>
+                            <Text style={{fontSize:ht*0.017,fontWeight:'bold'}}>{BMIText()}</Text>
                             </View> 
                     </View>
                     
@@ -235,7 +262,7 @@ console.log('fat',setFat())
                         
                     </View>
                     <View style={{flexDirection:'row',alignItems:'center',flex:1}}> 
-                        <TextInput keyboardType={"numeric"} name='height' value={values.height} onChangeText={(e)=>handleChange(e,'height')} style={styles.inputfield} />
+                        <TextInput keyboardType={'numeric'} name='height' value={values.height}   onChangeText={(e)=>handleChange(e,'height')} style={styles.inputfield} />
                         <Text> feet</Text>
                     </View>
                    
@@ -414,7 +441,7 @@ console.log('fat',setFat())
 
                     <View style={{padding:ht*0.02,marginTop:ht*0.008,marginRight:ht*0.02,elevation:6,backgroundColor:'white',borderRadius:ht*0.015}}>
                             <View style={{flexDirection:'row',flex:1,height:ht*0.013,position:'relative'}}>
-                                {setWhr() == 0  ? null:( setWhr() >= 1 ? null: <View style={{position:'absolute',left:setWhr()*(wd*0.8),top:-ht*0.005,height:ht*0.022,width:wd*0.04,backgroundColor:'red',zIndex:4,borderRadius:ht*0.5}}></View> )  }
+                                {setWhr() == 0  ? null:( setWhr() >= 1 ? null: <View style={{position:'absolute',left:setWhr()*(wd*0.8),top:-ht*0.005,height:ht*0.022,width:wd*0.04,backgroundColor:'rgb(242, 199, 157)',zIndex:4,borderRadius:ht*0.5}}></View> )  }
                                 <View style={{flex:1,backgroundColor:'rgb(8, 168, 154)',borderTopLeftRadius:ht*0.01,borderBottomLeftRadius:ht*0.01}}></View>
                                 <View style={{flex:1,backgroundColor:'rgb(77, 181, 63)'}}></View>
                                 <View style={{flex:1,backgroundColor:'rgb(234, 205, 60)'}}></View>
@@ -426,13 +453,13 @@ console.log('fat',setFat())
 
                  {/* BAR-2 */}
                 <View style={{marginBottom:ht*0.01,marginTop:ht*0.04}}>
-                <View style={{flex:1,flexDirection:'row',justifyContent:'space-between'}}>
+                    <View style={{flex:1,flexDirection:'row',justifyContent:'space-between'}}>
                         <Text style={{fontSize:ht*0.023}}>BodyFat % :- <Text style={{color:'tomato'}}>  {setFat() <= 0 ? null : setFat().toFixed(0) }  {fatText()} </Text></Text>
                         <AntDesign name="plus" size={12} color="black" style={{paddingRight:ht*0.009,marginRight:wd*0.069 }} />
                     </View>
                     <View style={{padding:ht*0.02,marginTop:ht*0.008,marginRight:ht*0.02,elevation:6,backgroundColor:'white',borderRadius:ht*0.015}}>
                             <View style={{flexDirection:'row',flex:1,height:ht*0.013,position:'relative'}}>
-                                {setFat() == 0 ? null: <View style={{position:'absolute',left:setFat()*wd*0.008,top:-ht*0.005,height:ht*0.022,width:wd*0.04,backgroundColor:'red',zIndex:4,borderRadius:ht*0.5}}></View>}
+                                {setFat() == 0 ? null: <View style={{position:'absolute',left:setFat()*wd*0.008,top:-ht*0.005,height:ht*0.022,width:wd*0.04,backgroundColor:'rgb(242, 199, 157)',zIndex:4,borderRadius:ht*0.5}}></View>}
                                 <View style={{flex:1,backgroundColor:'rgb(8, 168, 154)',borderTopLeftRadius:ht*0.01,borderBottomLeftRadius:ht*0.01}}></View>
                                 {/* <View style={{flex:1,backgroundColor:'rgb(77, 181, 63)'}}></View> */}
                                 <View style={{flex:1,backgroundColor:'rgb(234, 205, 60)'}}></View>
@@ -442,14 +469,8 @@ console.log('fat',setFat())
                     </View> 
                 </View>
            </View>
-           
         </View>
-        
-        <View style={{height:ht*0.4,width:wd,backgroundColor:'red',alignItems:'center',justifyContent:'center'}}>
-            <View style={{height:ht*0.2,width:ht*0.2,backgroundColor:'green',borderRadius:ht*0.2/2}}></View>
-        </View>
-
-        </ScrollView>
+    </ScrollView>
 
         <View style={{backgroundColor:'whitesmoke',elevation:5,padding:ht*0.008,position:'absolute',bottom:0,width:wd,flexDirection:'row',justifyContent:'space-around' }}>
            
@@ -496,14 +517,16 @@ const styles = StyleSheet.create({
         elevation: 5
     },
     logo:{
-           height:ht*0.05,
-           width:wd*0.1,
-           borderRadius:ht*0.05
+           height:ht*0.06,
+           width:ht*0.06,
+           borderRadius:ht*0.06/2,
+           resizeMode:'cover'
     },
     progress:{
-        height:ht*0.22,
-        width:wd*0.4,
-        alignSelf:'center'
+        height:ht*0.25,
+        width:ht*0.25,
+        alignSelf:'center',
+        resizeMode:'contain'
     },
     proview:{
         backgroundColor:'white',

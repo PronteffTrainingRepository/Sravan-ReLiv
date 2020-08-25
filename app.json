@@ -4,12 +4,15 @@
     "slug": "ReLiv",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/logo.png",
+    "icon": "./assets/reliv.png",
+    "description":"this is app",
+
     "splash": {
-      "image": "./assets/logo.png",
+      "image": "./assets/reliv.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
+      "backgroundColor": "#1B1752",
+      "description":"this is app"
+    }, 
     "updates": {
       "fallbackToCacheTimeout": 0
     },
