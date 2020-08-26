@@ -5,20 +5,17 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/reliv.png",
-    "description":"this is app",
+    "description": "this is app",
 
     "splash": {
       "image": "./assets/reliv.png",
       "resizeMode": "contain",
-      "backgroundColor": "#1B1752",
-      "description":"this is app"
-    }, 
+      "backgroundColor": "#1B1752"
+    },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
