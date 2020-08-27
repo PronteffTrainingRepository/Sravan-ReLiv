@@ -1,11 +1,6 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import Registration from "./src/Registration";
-import Image from "./src/Image";
 import Registrations from "./src/screens/Registrations";
-import Date from "./src/Date";
-import Location from "./src/Location";
 import BodyParameters from "./src/screens/BodyParameters";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";

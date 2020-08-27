@@ -19,7 +19,6 @@ import {
   FontAwesome5,
   MaterialCommunityIcons,
 } from "@expo/vector-icons";
-import { WebView } from "react-native-WebView";
 
 const ht = Dimensions.get("window").height;
 const wd = Dimensions.get("window").width;
@@ -833,7 +832,7 @@ function BodyParameters() {
                     }}
                   ></View>
                 </View>
-                <WebView source={{ uri: "https://reactnative.dev/" }} />;
+                {/* <WebView source={{ uri: "https://reactnative.dev/" }} />; */}
                 {/* <WebView source={{ uri: "https://www.javatpoint.com" }} /> */}
                 {/* <ActivityIndicator   animating = {true} size="small" color="blue" />   */}
               </View>
@@ -879,7 +878,7 @@ export default BodyParameters;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: Constants.statusBarHeight,
+    // paddingTop: Constants.statusBarHeight,
     backgroundColor: "#2480e2",
   },
 

@@ -117,7 +117,7 @@ function Registrations({ navigation }) {
             <View style={{ marginTop: ht * 0.02, marginBottom: ht * 0.02 }}>
               <Image
                 style={styles.logo}
-                source={require("../../assets/reliv.jpg")}
+                source={require("../../assets/reliv.png")}
               />
             </View>
             {/* From starts */}
@@ -193,9 +193,9 @@ function Registrations({ navigation }) {
                     style={{
                       top: -ht * 0.032,
                       left: wd * 0.12,
-                      width: wd * 0.3,
+                      width: ht * 0.16,
                       height: ht * 0.16,
-                      borderRadius: ht * 0.1,
+                      borderRadius: (ht * 0.16) / 2,
                       backgroundColor: "lightgrey",
                       borderColor: "white",
                     }}
@@ -203,23 +203,22 @@ function Registrations({ navigation }) {
                     <TouchableOpacity onPress={_pickImage}>
                       {image === "null" ? (
                         <Image
-                          source={require("../../assets/Profileicon.png")}
+                          source={require("../../assets/reliv.png")}
+                          resizeMode="cover"
                           style={{
-                            width: wd * 0.3,
+                            width: ht * 0.16,
                             height: ht * 0.16,
-                            borderRadius: ht * 0.1,
+                            borderRadius: (ht * 0.16) / 2,
                             backgroundColor: "lightgrey",
-                            borderColor: "white",
-                            borderWidth: 3,
                           }}
                         />
                       ) : (
                         <Image
                           source={{ uri: image }}
                           style={{
-                            width: wd * 0.3,
+                            width: ht * 0.16,
                             height: ht * 0.16,
-                            borderRadius: ht * 0.1,
+                            borderRadius: (ht * 0.16) / 2,
                           }}
                         />
                       )}
